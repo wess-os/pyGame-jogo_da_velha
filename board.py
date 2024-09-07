@@ -60,12 +60,16 @@ def check_win(board, graphical_board, screen, winning_images, trophy_image):
     if winner is not None:
         # Exibir o troféu
         trophy_image = pygame.image.load("assets/winner.png")
+        trophy_image = pygame.transform.scale(trophy_image, (trophy_image.get_width() // 2, trophy_image.get_height() // 2))  # Redimensiona o troféu
         screen.blit(trophy_image, (screen.get_width() // 2 - trophy_image.get_width() // 2, screen.get_height() // 2 - trophy_image.get_height() // 2))
 
         # Exibir o texto do vencedor
         font = pygame.font.Font(None, 74)
-        text = f"{winner} ganhou!"
-        text_surface = font.render(text, True, (175, 225, 175))
+        if winner == 'X':
+            text = "player 1 ganhou!"
+        else:
+            text = "player 2 ganhou!"
+        text_surface = font.render(text, True, (255, 255, 255))
         text_rect = text_surface.get_rect(center=(screen.get_width() // 2, screen.get_height() // 2 + trophy_image.get_height() // 2 + 20))
         screen.blit(text_surface, text_rect)
 

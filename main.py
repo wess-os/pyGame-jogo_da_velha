@@ -7,7 +7,7 @@ pygame.init()
 
 WIDTH, HEIGHT = 900, 900
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Tic Tac Toe!")
+pygame.display.set_caption("Jogo da Velha")
 
 BG_COLOR = (214, 201, 227)
 BOARD, X_IMG, O_IMG, WINNING_IMAGES, TROPHY_IMAGE = load_assets()
